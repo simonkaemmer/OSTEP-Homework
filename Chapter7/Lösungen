@@ -1,0 +1,109 @@
+Aufgabe 1:
+
+SJF
+Here is the job list, with the run time of each job: 
+  Job 0 ( length = 200.0 )
+  Job 1 ( length = 200.0 )
+  Job 2 ( length = 200.0 )
+
+
+Compute the turnaround time, response time, and wait time for each job.
+When you are done, run this program again, with the same arguments,
+but with -c, which will thus provide you with the answers. You can use
+-s  or your own job list (-l 10,15,20 for example)
+to generate different problems for yourself.
+
+Turnaround Time: Tcomletion - Tarrival
+T = ((200-0) + (400-0) - ( 600-0))/3 =  400
+
+Response Time: Tfirstrun - Tarrival
+T = ((0-0) + (200-0) + (400-0))/3 = 200
+
+
+Für FIFO brauche ich in diesem Fall garnichts berechen, wenn die Jobs gleichlang sind,
+ist Tsjf = Tfifo, in beiden Metriken.
+
+
+
+Aufgabe 2.
+SJF:
+
+Turnaround Time: Tcompletion - Tarrival
+T = ((100- 0) + (300 - 0) + (600 - 0))/3 = 333.33333333
+
+Response Time: Tfirstrun - Tarrival
+T = ((0 - 0) + (100 - 0) + (300 -0)) / 3 = 133,3333
+Andere Konstellationen sind völlig egal
+
+FIFO
+
+Turnaround Time: Tcompletion - Tarrival
+... 333,33
+
+Response
+... 133.33
+
+
+Aufgabe 3:
+
+100, 100, 100
+
+Job0 bei 298 fertig, Job1 bei 299, job2 bei 300
+
+Resp: 1s
+Turnaround: (298 + 299 + 300) / 3 = 299
+
+
+
+100, 200, 300 Times
+
+Wenn Job0 direkt startet ist er bei 298 fertig, job 2 ist bei 499 fertig, und Job 3 nach 600
+
+
+Final statistics:
+  Job   0 -- Response: 0.00  Turnaround 298.00  Wait 198.00
+  Job   1 -- Response: 1.00  Turnaround 499.00  Wait 299.00
+  Job   2 -- Response: 2.00  Turnaround 600.00  Wait 300.00
+
+  Average -- Response: 1.00  Turnaround 465.67  Wait 265.67
+
+
+
+Aufgabe4: 
+
+- Wenn alle Jobs gleichlang sind
+- Wenn bei fifo die Jobs der Länge nach sortiert kommen
+- 
+- 
+
+Aufgabe 5.
+- Quantum-Length = Avg(JobLengths)
+- 
+
+Aufgabe 6.
+Die Durchschnittliche Response Time von SFJ wird immer höher je länger die Jobs durchschnittlich werden
+
+Aufgabe 7. 
+
+JobLength in 100er-Schritten    bis 100: 0
+                                bis 200: 50
+                                bis 300: 133.33333
+                                bis 400: 250
+                                bis 500: 400
+                                bis 600: 583
+                                bis 700: 800
+                                bis 800: 1050
+                                bis 900: 1333.333
+                                bis 1000:1650
+                                bis 1200:2000
+
+Siehe Python
+
+Aufgabe 7:
+
+Die Response-Time wird schlechter wenn die Quantum-Length größer wird.
+
+Wenn also Q gleich 
+
+Worstcase response-time: Wenn Q = Sum(JobLengths) / N
+q*n-1

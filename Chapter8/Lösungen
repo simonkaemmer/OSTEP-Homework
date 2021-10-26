@@ -1,0 +1,147 @@
+Aufgabe 1.
+
+./mlfq.py -j 2 -s 5 -n 2 -m 20 -M 0 -c
+
+Job List:
+  Job  0: startTime   0 - runTime  12 - ioFreq   0
+  Job  1: startTime   0 - runTime  16 - ioFreq   0
+
+
+Execution Trace:
+
+[ time 0 ] JOB BEGINS by JOB 0
+[ time 0 ] JOB BEGINS by JOB 1
+[ time 0 ] Run JOB 0 at PRIORITY 1 [ TICKS 9 ALLOT 1 TIME 11 (of 12) ]
+[ time 1 ] Run JOB 0 at PRIORITY 1 [ TICKS 8 ALLOT 1 TIME 10 (of 12) ]
+[ time 2 ] Run JOB 0 at PRIORITY 1 [ TICKS 7 ALLOT 1 TIME 9 (of 12) ]
+[ time 3 ] Run JOB 0 at PRIORITY 1 [ TICKS 6 ALLOT 1 TIME 8 (of 12) ]
+[ time 4 ] Run JOB 0 at PRIORITY 1 [ TICKS 5 ALLOT 1 TIME 7 (of 12) ]
+[ time 5 ] Run JOB 0 at PRIORITY 1 [ TICKS 4 ALLOT 1 TIME 6 (of 12) ]
+[ time 6 ] Run JOB 0 at PRIORITY 1 [ TICKS 3 ALLOT 1 TIME 5 (of 12) ]
+[ time 7 ] Run JOB 0 at PRIORITY 1 [ TICKS 2 ALLOT 1 TIME 4 (of 12) ]
+[ time 8 ] Run JOB 0 at PRIORITY 1 [ TICKS 1 ALLOT 1 TIME 3 (of 12) ]
+[ time 9 ] Run JOB 0 at PRIORITY 1 [ TICKS 0 ALLOT 1 TIME 2 (of 12) ]
+[ time 10 ] Run JOB 1 at PRIORITY 1 [ TICKS 9 ALLOT 1 TIME 15 (of 16) ]
+[ time 11 ] Run JOB 1 at PRIORITY 1 [ TICKS 8 ALLOT 1 TIME 14 (of 16) ]
+[ time 12 ] Run JOB 1 at PRIORITY 1 [ TICKS 7 ALLOT 1 TIME 13 (of 16) ]
+[ time 13 ] Run JOB 1 at PRIORITY 1 [ TICKS 6 ALLOT 1 TIME 12 (of 16) ]
+[ time 14 ] Run JOB 1 at PRIORITY 1 [ TICKS 5 ALLOT 1 TIME 11 (of 16) ]
+[ time 15 ] Run JOB 1 at PRIORITY 1 [ TICKS 4 ALLOT 1 TIME 10 (of 16) ]
+[ time 16 ] Run JOB 1 at PRIORITY 1 [ TICKS 3 ALLOT 1 TIME 9 (of 16) ]
+[ time 17 ] Run JOB 1 at PRIORITY 1 [ TICKS 2 ALLOT 1 TIME 8 (of 16) ]
+[ time 18 ] Run JOB 1 at PRIORITY 1 [ TICKS 1 ALLOT 1 TIME 7 (of 16) ]
+[ time 19 ] Run JOB 1 at PRIORITY 1 [ TICKS 0 ALLOT 1 TIME 6 (of 16) ]
+[ time 20 ] Run JOB 0 at PRIORITY 0 [ TICKS 9 ALLOT 1 TIME 1 (of 12) ]
+[ time 21 ] Run JOB 0 at PRIORITY 0 [ TICKS 8 ALLOT 1 TIME 0 (of 12) ]
+[ time 22 ] FINISHED JOB 0
+[ time 22 ] Run JOB 1 at PRIORITY 0 [ TICKS 9 ALLOT 1 TIME 5 (of 16) ]
+[ time 23 ] Run JOB 1 at PRIORITY 0 [ TICKS 8 ALLOT 1 TIME 4 (of 16) ]
+[ time 24 ] Run JOB 1 at PRIORITY 0 [ TICKS 7 ALLOT 1 TIME 3 (of 16) ]
+[ time 25 ] Run JOB 1 at PRIORITY 0 [ TICKS 6 ALLOT 1 TIME 2 (of 16) ]
+[ time 26 ] Run JOB 1 at PRIORITY 0 [ TICKS 5 ALLOT 1 TIME 1 (of 16) ]
+[ time 27 ] Run JOB 1 at PRIORITY 0 [ TICKS 4 ALLOT 1 TIME 0 (of 16) ]
+[ time 28 ] FINISHED JOB 1
+
+Final statistics:
+  Job  0: startTime   0 - response   0 - turnaround  22
+  Job  1: startTime   0 - response  10 - turnaround  28
+
+  Avg  1: startTime n/a - response 5.00 - turnaround 25.00
+
+./mlfq.py -j 2 -s 10 -n 2 -m 10 -M 0 -c
+
+Job List:
+  Job  0: startTime   0 - runTime   6 - ioFreq   0
+  Job  1: startTime   0 - runTime   6 - ioFreq   0
+
+
+Execution Trace:
+
+[ time 0 ] JOB BEGINS by JOB 0
+[ time 0 ] JOB BEGINS by JOB 1
+[ time 0 ] Run JOB 0 at PRIORITY 1 [ TICKS 9 ALLOT 1 TIME 5 (of 6) ]
+[ time 1 ] Run JOB 0 at PRIORITY 1 [ TICKS 8 ALLOT 1 TIME 4 (of 6) ]
+[ time 2 ] Run JOB 0 at PRIORITY 1 [ TICKS 7 ALLOT 1 TIME 3 (of 6) ]
+[ time 3 ] Run JOB 0 at PRIORITY 1 [ TICKS 6 ALLOT 1 TIME 2 (of 6) ]
+[ time 4 ] Run JOB 0 at PRIORITY 1 [ TICKS 5 ALLOT 1 TIME 1 (of 6) ]
+[ time 5 ] Run JOB 0 at PRIORITY 1 [ TICKS 4 ALLOT 1 TIME 0 (of 6) ]
+[ time 6 ] FINISHED JOB 0
+[ time 6 ] Run JOB 1 at PRIORITY 1 [ TICKS 9 ALLOT 1 TIME 5 (of 6) ]
+[ time 7 ] Run JOB 1 at PRIORITY 1 [ TICKS 8 ALLOT 1 TIME 4 (of 6) ]
+[ time 8 ] Run JOB 1 at PRIORITY 1 [ TICKS 7 ALLOT 1 TIME 3 (of 6) ]
+[ time 9 ] Run JOB 1 at PRIORITY 1 [ TICKS 6 ALLOT 1 TIME 2 (of 6) ]
+[ time 10 ] Run JOB 1 at PRIORITY 1 [ TICKS 5 ALLOT 1 TIME 1 (of 6) ]
+[ time 11 ] Run JOB 1 at PRIORITY 1 [ TICKS 4 ALLOT 1 TIME 0 (of 6) ]
+[ time 12 ] FINISHED JOB 1
+
+Final statistics:
+  Job  0: startTime   0 - response   0 - turnaround   6
+  Job  1: startTime   0 - response   6 - turnaround  12
+
+  Avg  1: startTime n/a - response 3.00 - turnaround 9.00
+
+
+
+Aufgabe 2.
+
+Example 1
+./mlfq.py -n 3 -q 10 --jlist 0,200,0 -S -c
+
+Example 2
+8.3
+/mlfq.py -n 3 -q 10 --jlist 0,200,0:100,20,0 -S -c
+
+Example 3
+./mlfq.py -n 3 -q 10 --jlist 0,180,0:50,20,1 -i 7 -S -c
+
+8.5
+Without prio Boosting:
+./mlfq.py -n 3 -q 10 -i 1 --jlist 0,200,0:100,50,1:100,50,1 -S -c
+With Boosting every 50t
+/mlfq.py -n 3 -q 10 -i 1 --jlist 0,200,0:100,50,1:100,50,1 -S -B 50 -c
+
+
+8.6
+
+/mlfq.py -n 3 -q 10 -i 1 --jlist 0,170,0:75,100,10 -S -B 50 -c
+Komme nicht hin
+
+8.7
+
+Einstellung für Alotment fehlt mir,
+./mlfq.py -n 3 -Q 10,20,40 --jlist 0,140,0:0,140,0 -c
+
+
+Aufgabe 3.
+
+Eine Queue
+./mlfq.py -n 1 -q 10 --jlist 0,100,0:0,100,0 -c
+Dazu sollte man darauf achten, dass das Quantum möglichst so
+gewählt wird, dass am Ende nichts übrig bleibt. Also zur Not Sum(JobLengths)/Njobs, dass bringt
+aber nicht die optimale ResponseTime, verbessert dafür die Turnaround-time.
+
+
+Aufgabe 4.
+
+./mlfq.py -n 3 -q 11 -l 0,100,0:0,50,10 -i 1 -S -c
+
+Aufgabe 5.
+
+Damit ein Job 5% bekommen kann, muss er mindestens 200ms laufen, damit er ein mal hochgeboostet werden kann.
+D.h. Alle 200ms ein Boost. So kommt er genau 10ms hoch, bevor er wieder fällt.
+
+./mlfq
+
+Aufgabe 6.
+
+In jedem Fall sorgt das I dafür, dass Jobs die viel Interaktion vom Benutzer
+fordern interaktiver laufen. Der vom Benutzer beeinflusste Prozess
+läuft direkt weiter, problematisch ist das aber, wenn ein Prozess damit immer und immer wieder
+an den Anfang einer Que gesetzt wird. So verhungern andere Prozesse
+
+
+
+
+
+
+

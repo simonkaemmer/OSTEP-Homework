@@ -1,0 +1,70 @@
+Aufgabe 2.
+
+simon@SimonsLaptop:~$ free -m
+              gesamt      belegt       frei     gemeinsam    Zwischen   verfügbar
+Speicher:       15753        2181       10978         513        2592       12741
+Auslager:        2047           0        2047
+
+
+Grundsätzlich passt das wohl, der Laptop sollte 16Gig haben, und das hat er scheinbar auch
+warum noch 2Gig bereit für die Auslagerung sind, verstehe ich nicht ganz, das wird aber ein Linuxding sein,
+belegt sind sie ja nicht.
+
+Aufgabe 4.
+
+simon@SimonsLaptop:~$ free -m
+              gesamt      belegt       frei     gemeinsam    Zwischen   verfügbar
+Speicher:       15753        5368        4237         639        6147        9413
+Auslager:        2047           0        2047
+simon@SimonsLaptop:~$ free -m
+              gesamt      belegt       frei     gemeinsam    Zwischen   verfügbar
+Speicher:       15753        5673        3907         664        6172        9083
+Auslager:        2047           0        2047
+simon@SimonsLaptop:~$ 
+
+
+Es wird immer ein kleines bisschen mehr gebraucht als vom Programm dann allociert. Irgenwo muss der Code hin, Poiter etc müssen natürlich auch ab
+
+
+Aufgabe 5,6,7
+
+simon@SimonsLaptop:~$ pmap -x 39776
+39776:   ./memory-user 300 10000
+Adresse            kByte     RSS   Dirty Modus Zuordnung
+0000558d8cb31000       4       4       0 r---- memory-user
+0000558d8cb32000       4       4       0 r-x-- memory-user
+0000558d8cb33000       4       4       0 r---- memory-user
+0000558d8cb34000       4       4       4 r---- memory-user
+0000558d8cb35000       4       4       4 rw--- memory-user
+0000558d8e473000     132       4       4 rw---   [ anon ]
+00007f40ae31e000  307204  307204  307204 rw---   [ anon ]
+00007f40c0f1f000     148     140       0 r---- libc-2.31.so
+00007f40c0f44000    1504    1120       0 r-x-- libc-2.31.so
+00007f40c10bc000     296     124       0 r---- libc-2.31.so
+00007f40c1106000       4       0       0 ----- libc-2.31.so
+00007f40c1107000      12      12      12 r---- libc-2.31.so
+00007f40c110a000      12      12      12 rw--- libc-2.31.so
+00007f40c110d000      24      24      24 rw---   [ anon ]
+00007f40c112c000       4       4       0 r---- ld-2.31.so
+00007f40c112d000     140     140       0 r-x-- ld-2.31.so
+00007f40c1150000      32      32       0 r---- ld-2.31.so
+00007f40c1159000       4       4       4 r---- ld-2.31.so
+00007f40c115a000       4       4       4 rw--- ld-2.31.so
+00007f40c115b000       4       4       4 rw---   [ anon ]
+00007ffddfd85000     132      16      16 rw---   [ stack ]
+00007ffddfdc3000      16       0       0 r----   [ anon ]
+00007ffddfdc7000       8       4       0 r-x--   [ anon ]
+ffffffffff600000       4       0       0 --x--   [ anon ]
+---------------- ------- ------- ------- 
+kB gesamt         309704  308868  307292
+
+
+
+Relativ weit oben im Speicher liegt das Programm und die dazugehörigen Variablen etc. Dazwischen kommt dann erstmal nichts, und danach wurde die C-Standartlibary geladen.
+Nach einem weiteren anonymen Block, kommt der dynamische Linker, der geteilte Objekte (Shared Objects) ins Programm bindet.
+
+Nach einem weiteren leeren Bereich kommt der Stack des Programms. Scheinbar gibt es hier keinen Heap, oder zumindest wird er anders genannt.
+
+Aufgabe 8.
+
+Wie bereits oben gesehen, passen die Werte immer nicht 100%, vermutlich weil einfach ein bisschen overhead für Programm, Stack/Heap, stdLib und Linker gebraucht werden.

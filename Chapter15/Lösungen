@@ -1,0 +1,172 @@
+Aufgabe 1:
+
+Seed 1: 
+
+Base: 13884
+Limit: 290
+
+VA 0: Decimal: 782 --> Fault, weil über Limit
+VA 1: Decimal 261 --> 13884 + 261 = 14145
+VA 2: Decimal 507 --> Fault, weil über Limit
+VA 3: Decimal 460 --> Fault, weil über Limit
+VA 4: Decimal 667 --> Fault, weil über Limit
+
+Seed 2:
+
+Base: 15529
+Limit: 500
+
+VA 0: Decimal 57 --> 15529 + 57 = 15586
+VA 1: Decimal 86 --> 15529 + 86 = 15615
+VA 2: Decimal 855 --> Fault, weil über Limit
+VA 3: Decimal 753 --> Fault, weil über Limit
+VA 4: Decimal 685 --> Fault, weil über Limit
+
+Seed 3: 
+
+Base: 8916
+Limit: 316
+
+VA 0: 387 --> Fault, weil über Limit
+VA 1: 618 --> Faukt, weil über Limit
+VA 2: 640 --> Fault, weil über Limit
+VA 3: 67 --> 8916 + 67 = 8983
+VA 4: 13 --> 8916 + 13 = 8929
+
+
+
+Aufgabe 2:
+
+Das Bounds-Register muss auf 930 gesetzt werden, weil der Höchste Zugriff 929 ist. 
+
+
+
+Aufgabe 3:
+
+Damit der Addresspace noch in den Block passt, darf die Base-Addresse 
+maximal bei 16k - 100 = 16283 gesetzt werden. 
+Theoretisch kann das Base-Register sogar einen Wert höher setzen, weil das Limit
+ja schon außerhalb der erlaubten Zugriffe ist.
+
+Aufgabe 4:
+
+imon@SimonsLaptop:~/Dokumente/BSYS/Chapter15$ ./relocation.py -a 16k -p 32m -s 2 -c 
+
+ARG seed 2
+ARG address space size 16k
+ARG phys mem size 32m
+
+Base-and-Bounds register information:
+
+  Base   : 0x01e549a4 (decimal 31803812)
+  Limit  : 8011
+
+Virtual Address Trace
+  VA  0: 0x0000039e (decimal:  926) --> VALID: 0x01e54d42 (decimal: 31804738)
+  VA  1: 0x0000056e (decimal: 1390) --> VALID: 0x01e54f12 (decimal: 31805202)
+  VA  2: 0x00003578 (decimal: 13688) --> SEGMENTATION VIOLATION
+  VA  3: 0x00002f1a (decimal: 12058) --> SEGMENTATION VIOLATION
+  VA  4: 0x00002adc (decimal: 10972) --> SEGMENTATION VIOLATION
+
+simon@SimonsLaptop:~/Dokumente/BSYS/Chapter15$ ./relocation.py -a 16k -p 32m -s 2 -c 
+
+ARG seed 2
+ARG address space size 16k
+ARG phys mem size 32m
+
+Base-and-Bounds register information:
+
+  Base   : 0x01e549a4 (decimal 31803812)
+  Limit  : 8011
+
+Virtual Address Trace
+  VA  0: 0x0000039e (decimal:  926) --> VALID: 0x01e54d42 (decimal: 31804738)
+  VA  1: 0x0000056e (decimal: 1390) --> VALID: 0x01e54f12 (decimal: 31805202)
+  VA  2: 0x00003578 (decimal: 13688) --> SEGMENTATION VIOLATION
+  VA  3: 0x00002f1a (decimal: 12058) --> SEGMENTATION VIOLATION
+  VA  4: 0x00002adc (decimal: 10972) --> SEGMENTATION VIOLATION
+
+simon@SimonsLaptop:~/Dokumente/BSYS/Chapter15$ ./relocation.py -a 16k -p 32m -s 3 -c 
+
+ARG seed 3
+ARG address space size 16k
+ARG phys mem size 32m
+
+Base-and-Bounds register information:
+
+  Base   : 0x0116a536 (decimal 18261302)
+  Limit  : 5070
+
+Virtual Address Trace
+  VA  0: 0x000017ad (decimal: 6061) --> SEGMENTATION VIOLATION
+  VA  1: 0x000026a6 (decimal: 9894) --> SEGMENTATION VIOLATION
+  VA  2: 0x0000280b (decimal: 10251) --> SEGMENTATION VIOLATION
+  VA  3: 0x00000431 (decimal: 1073) --> VALID: 0x0116a967 (decimal: 18262375)
+  VA  4: 0x000000d7 (decimal:  215) --> VALID: 0x0116a60d (decimal: 18261517)
+
+simon@SimonsLaptop:~/Dokumente/BSYS/Chapter15$ 
+
+
+Gefühlt ändert sich nichts, weil der Simulator den Seed anpasst. Im Verhältnis bleibt also die 
+Anzahl der Faults gleich.
+
+
+
+Aufgabe 5.
+
+simon@SimonsLaptop:~/Dokumente/BSYS/Chapter15$ ./relocation.py -a 1000 -s 1 -l 1 -c 
+
+Limit: 1
+
+-s 1: 10 faults, 0 hits
+-s 2: 10 faults, 0 hits
+-s 3: 10 faults, 0 hits
+-s 4: 10 faults, 0 hits
+
+avg: 10 faults, 0 hits
+0%
+
+Limit: 10
+
+-s 1: 10 faults, 0 hits
+-s 2: 10 faults, 0 hits
+-s 3: 10 faults, 0 hits
+-s 4: 10 faults, 0 hits
+
+avg: 10 faults, 0 hits
+0%
+
+Limit: 100
+
+-s 1: 8 faults, 2 hits
+-s 2: 8 faults, 2 hits
+-s 3: 8 faults, 2 hits
+-s 4: 9 faults, 1 hit
+
+avg: 1.75 hits
+
+17,5%
+
+Limit: 500
+
+-s 1: 5 faults, 5 hits
+-s 2: 7 faults, 3 hits
+-s 3: 5 faults, 5 hits
+-s 4: 4 faults, 6 hits
+
+avg: 4.75 hits
+
+47.5%
+
+
+Limit: 1000
+
+logischerweise 100% hits
+
+
+
+
+
+
+
+

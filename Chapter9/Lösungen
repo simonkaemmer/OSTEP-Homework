@@ -1,0 +1,238 @@
+Aufgabe1:
+
+Unterschied zu Simulation: Zeile mit Lenghts werden direkt abgezogen, als wäre der Job schon gelaufen bevor die Angabe kommt.
+
+-s 1:
+Tix insgesammt: 84 + 25 + 44= 153
+
+651593mod153 = 119
+--> Job2 wins (job0: 1, tix: 44)    (job1: 7, tix: 25)  (job2: 3, tix: 44)
+
+788724mod153 = 24
+--> Job0 wins (job0: 0, tix: 44)  (job1: 7, tix: 25)  (job2:3, tix: 44)
+
+93859mod69 = 19
+--> Job1 wins (job1: 6, tix: 25)     (job2: 3, tix: 44)
+
+28347mod69 = 57
+--> Job2 wins (job1: 6, tix: 25)     (job2: 2, tix: 44)
+
+835765mod69 = 37
+--> Job2 wins (job1: 6, tix: 25)    (job2: 1, tix: 44)
+
+432767mod69 = 68
+--> Job 2 wins (job1: 6, tix:25=)   (job2: 0, tix:44)
+
+762280mod44 = 24
+--> Job 1 wins 
+
+... weiterhin wird wurnoch Job1 gewinnen, bis er fertig ist.
+Alle sind nach 12t fertig
+
+-------------------------------------------------------------------------------
+-s 2
+
+94+73+30 = 197
+
+= 169 --> Job2 (J0: 9 tix:94)(J1: 8 tix: 73)(J2: 5 tix:30)
+= 42  --> Job0 (J0: 8 tix:94)(J1: 8 tix: 73)(J2: 5 tix:30)
+= 54  --> Job0 (J0: 7 tix:94)(J1: 8 tix: 73)(J2: 5 tix:30)
+= 192 --> Job2 (J0: 7)(J1: 8)(J2: 4)
+= 28  --> Job0 (J0: 6)(J1: 8)(J2: 4)
+= 123 --> Job1 (J0: 6)(J1: 7)(J2: 4)
+= 22  --> Job0 (J0: 5)(J1: 7)(J2: 4)
+= 167 --> Job2 (J0: 5)(J1: 7)(J2: 3)
+= 53  --> Job0 (J0: 4)(J1: 7)(J2: 3)
+= 63  --> Job0 (J0: 3)(J1: 7)(J2: 3)
+= 28  --> Job0 (J0: 2)(J1: 7)(J2: 3)
+= 124 --> Job1 (J0: 2)(J1: 6)(J2: 3)
+= 70  --> Job0 (J0: 1)(J1: 6)(J2: 3)
+= 61  --> Job0 (J0: 0)(J1: 6)(J2: 3)
+Job0 fertig, noch 103 tickets übrig
+= 55  --> Job1 (J1: 5)(J2: 3)
+= 92  --> Job2 (J1: 5)(J2: 2)
+= 48  --> Job1 (J1: 4)(J2: 2)
+= 16  --> Job1 (J1: 3)(J2: 2)
+= 41  --> Job1 (J1: 2)(J2: 2)
+= 87  --> Job2 (J1: 2)(J2: 1)
+= 47  --> Job1 (J1: 1)(J2: 1)
+= 65  --> Job1 (J1: 0)(J2: 1)
+Job1 fertig
+= 3   --> Job2
+
+Alle fertig nach 23t
+
+---------------------------------------------------------------
+
+-s 3
+
+54+60+6 = 120
+
+= 88  --> Job 1 (J0: 2)(J1: 2)(J2: 6)
+= 109 --> Job 1 (J0: 2)(J1: 1)(J2: 6)
+= 34  --> Job 0 (J0: 1)(J1: 1)(J2: 6)
+= 91  --> Job 1 (J0: 1)(J1: 0)(J2: 6)
+Job1 fertig, 60 Tickets übrig
+= 5   --> Job 0 (J0: 0)(J2: 6)
+Job0 fertig, 6 Tickets übrig
+
+Nun läuft nur noch 6.
+
+Alle nach 11t fertig
+
+
+
+
+Aufgabe 2:
+
+Theoretisch ist es möglich das Job0 mit wenigen Tickets läuft, wenn dann aber extrem selten. 
+
+Im Simulator läuft Job0 nicht bevor Job1 fertig ist. 
+
+Random 844422 -> Winning ticket 62 (of 101) -> Run 1
+  Jobs:
+ (  job:0 timeleft:10 tix:1 )  (* job:1 timeleft:10 tix:100 ) 
+Random 757955 -> Winning ticket 51 (of 101) -> Run 1
+  Jobs:
+ (  job:0 timeleft:10 tix:1 )  (* job:1 timeleft:9 tix:100 ) 
+Random 420572 -> Winning ticket 8 (of 101) -> Run 1
+  Jobs:
+ (  job:0 timeleft:10 tix:1 )  (* job:1 timeleft:8 tix:100 ) 
+Random 258917 -> Winning ticket 54 (of 101) -> Run 1
+  Jobs:
+ (  job:0 timeleft:10 tix:1 )  (* job:1 timeleft:7 tix:100 ) 
+Random 511275 -> Winning ticket 13 (of 101) -> Run 1
+  Jobs:
+ (  job:0 timeleft:10 tix:1 )  (* job:1 timeleft:6 tix:100 ) 
+Random 404934 -> Winning ticket 25 (of 101) -> Run 1
+  Jobs:
+ (  job:0 timeleft:10 tix:1 )  (* job:1 timeleft:5 tix:100 ) 
+Random 783799 -> Winning ticket 39 (of 101) -> Run 1
+  Jobs:
+ (  job:0 timeleft:10 tix:1 )  (* job:1 timeleft:4 tix:100 ) 
+Random 303313 -> Winning ticket 10 (of 101) -> Run 1
+  Jobs:
+ (  job:0 timeleft:10 tix:1 )  (* job:1 timeleft:3 tix:100 ) 
+Random 476597 -> Winning ticket 79 (of 101) -> Run 1
+  Jobs:
+ (  job:0 timeleft:10 tix:1 )  (* job:1 timeleft:2 tix:100 ) 
+Random 583382 -> Winning ticket 6 (of 101) -> Run 1
+  Jobs:
+ (  job:0 timeleft:10 tix:1 )  (* job:1 timeleft:1 tix:100 ) 
+--> JOB 1 DONE at time 10
+Random 908113 -> Winning ticket 0 (of 1) -> Run 0
+  Jobs:
+ (* job:0 timeleft:10 tix:1 )  (  job:1 timeleft:0 tix:--- ) 
+Random 504687 -> Winning ticket 0 (of 1) -> Run 0
+  Jobs:
+ (* job:0 timeleft:9 tix:1 )  (  job:1 timeleft:0 tix:--- ) 
+Random 281838 -> Winning ticket 0 (of 1) -> Run 0
+  Jobs:
+ (* job:0 timeleft:8 tix:1 )  (  job:1 timeleft:0 tix:--- ) 
+Random 755804 -> Winning ticket 0 (of 1) -> Run 0
+  Jobs:
+ (* job:0 timeleft:7 tix:1 )  (  job:1 timeleft:0 tix:--- ) 
+Random 618369 -> Winning ticket 0 (of 1) -> Run 0
+  Jobs:
+ (* job:0 timeleft:6 tix:1 )  (  job:1 timeleft:0 tix:--- ) 
+Random 250506 -> Winning ticket 0 (of 1) -> Run 0
+  Jobs:
+ (* job:0 timeleft:5 tix:1 )  (  job:1 timeleft:0 tix:--- ) 
+Random 909747 -> Winning ticket 0 (of 1) -> Run 0
+  Jobs:
+ (* job:0 timeleft:4 tix:1 )  (  job:1 timeleft:0 tix:--- ) 
+Random 982786 -> Winning ticket 0 (of 1) -> Run 0
+  Jobs:
+ (* job:0 timeleft:3 tix:1 )  (  job:1 timeleft:0 tix:--- ) 
+Random 810218 -> Winning ticket 0 (of 1) -> Run 0
+  Jobs:
+ (* job:0 timeleft:2 tix:1 )  (  job:1 timeleft:0 tix:--- ) 
+Random 902166 -> Winning ticket 0 (of 1) -> Run 0
+  Jobs:
+ (* job:0 timeleft:1 tix:1 )  (  job:1 timeleft:0 tix:--- ) 
+--> JOB 0 DONE at time 20
+
+Eine solche Imbalance sorgt dafür, dass ein Job die CPU dominiert. Bei mehreren solcher Jobs würde Job 0 sogut wie nie ausgeführt werden, und im dümmsten Fall sogar verhungern.
+
+Aufgabe3: 
+
+-s 1
+Job1 ist 4t vor Job0 fertig. d.h. wir haben einen Unfairnesswert von 0,96. Das ist recht nah an 1, weswegen es bei zwei Jobs mit Länge 100 schon recht fair zugeht.
+
+-s 10
+
+Job0 ist 3t vor Job1 fertig --> U = 0.97 --> Recht fair.
+
+
+Auch weitere Beispiele zeigen, dass der Scheduler bei 100length ziemlich fair ist.
+
+
+Aufgabe4:
+
+Logischerweise wird der Scheduler bei steigendem Quantum immer unfairer. 
+Worstcase ist, wenn das Quantum so lange wie ein Job wird. So wird der zuerst gestartete Job erst fertig, bevor der zweite überhaupt beginnt.
+
+
+
+Aufgabe 5:
+
+10 Tickets, 1t
+
+Logischerweise U = 0.5
+
+10 tickets, 2t
+
+./lottery.py -l 2:10,2:10 -q 1 -s 25 -c    --> Job1 fertig @ 2, Job2 fertig @4 
+./lottery.py -l 2:10,2:10 -q 1 -s 5 -c     --> Job1 fertig @ 2, Job2 fertig @4
+./loterry.py -l 2:10,2:10 -q 1 -s 2532 -c  --> Job1 fertig @ 2, Job2 fertig @4
+Durchschnitt:                              --> Job1 fertig @ 2, Job2 fertig @4
+
+U = 0.5
+
+10 tickets, 4t
+
+./lottery.py -l 4:10,4:10 -q 1 -s 1 -c     --> Job1 fertig @ 6, Job2 fertig @8
+./lottery.py -l 4:10,4:10 -q 1 -s 4 -c     --> Job1 fertig @ 6, Job2 fertig @8
+./lottery.py -l 4:10,4:10 -q 1 -s 64 -c    --> Job1 fertig @ 6, Job2 fertig @8
+Durchschnitt:                              --> Job1 fertig @ 6, Job2 fertig @8
+
+U = 0.75
+
+10 Tickets, 10t
+
+./lottery.py -l 10:10,10:10 -q 1 -s 10 -c  --> Job1 fertig @ 18, Job2 fertig @20
+./lottery.py -l 10:10,10:10 -q 1 -s 243 -c --> Job1 fertig @ 15, Job2 fertig @20
+./lottery.py -l 10:10,10:10 -q 1 -s 25 -c  --> Job1 fertig @ 15, Job2 fertig @20
+Durchschnitt:                                  Job1 fertig @ 16, Job2 fertig @20
+
+Unfairness: 0.8
+
+10 Tickets, 100t
+ 
+./lottery.py -l 100:10,100:10 -q 1 -s 64 -c --> Job1 fertig @182, Job2 fertig @200
+./lottery.py -l 100:10,100:10 -q 1 -s 2 -c  --> Job1 fertig @195, Job2 fertig @200
+./lottery.py -l 100:10,100:10 -q 1 -s 42 -c --> Job1 fertig @181, Job2 fertig @200
+Durchschnitt:                               --> Job1 fertig @186, Job2 fertig @200
+
+U = 0.93
+
+10 Tickets, 1000t
+
+./lottery.py -l 1000:10,1000:10 -q 1 -s 42 -c --> Job1 fertig @1993, Job2 fertig @ 2000
+./lottery.py -l 1000:10,1000:10 -q 1 -s 23 -c --> Job1 fertig @1991, Job2 fertig @ 2000
+./lottery.py -l 1000:10,1000:10 -q 1 -s 5 -c  --> Job1 fertig @1984, Job2 fertig @ 2000
+Durchschnitt:                                 --> Job1 fertig @1989, Job2 fertig @ 2000
+
+U = 0.99
+
+Der Stride-Scheduler arbeitet grundsätzlich ähnlich, wird sich aber wesentlich fairer verhalten, weil er sich immer für den noch nicht so lange gelaufenen job entscheiden wird
+
+
+
+
+
+
+
+
+
+
