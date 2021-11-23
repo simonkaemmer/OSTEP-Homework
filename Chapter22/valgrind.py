@@ -16,7 +16,7 @@ for line in file:
     if line[0] != '=':
 
         hexInt = int("0x" + line[3:11], 16) # Erst in HexInt umwandeln
-        maskedInt = hexInt & 11111111111111111111000000000000 # Dann die letzten 12 Bit fürs Offset wegmasken
+        maskedInt = hexInt & 0b11111111111111111111000000000000 # Dann die letzten 12 Bit fürs Offset wegmasken
         shiftedInt = maskedInt >> 12    # Die letzten nun leeren Bits wegshiften
         lines.append(str(shiftedInt) + "\n")
 
