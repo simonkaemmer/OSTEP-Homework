@@ -1,62 +1,77 @@
-Aufgabe 1:
+Aufgabe 1.
 
-Eigentlich brauchen wir immer nur ein Register, dass auf die höchste
-Ebene (2 Wege: Auf das PageDir, 3 Wege: auf die PageDir welche die weiteren Pagedirs aufspannt) zeigt.
+FIFO
 
-Aufgabe 2:
-------------------------------------------------
-Vorgehen: 
+Access 8: Miss - [8] <-- Last
+Access 7: Miss - [8, 7]
+Access 4: Miss - [8, 7, 4]
+Access 2: Miss - [7, 4, 2]
+Access 5: Miss - [4, 2, 5]
+Access 4: Hit - [4, 2, 5]
+Access 7: Miss - [2, 5, 7]
+Access 3: Miss - [5, 7, 3]
+Access 4: Miss - [7, 3, 4]
+Access 5: Miss - [3, 4, 5]
 
-1. Ersten 5 bits für Offset im PDBR
-2. Page aus PDBR holen
-3. Mittleren 5 bits sind offset in Page
-4. Wert aus Page lesen, muss 8 lang sein, erstes bit ist das valid bit
-5. Restlichen 7 bit sind PFN wenn valid
-6. Addresse zusammenfügen und auslesen
+--> Hitrate: 10%
 
+LRU
 
-Pagesize: 32Byte --> 5 Bit Offset
-Virtual Addressspace: 32KB --> 1024 Pages --> 15bits
+8: Miss [8]
+7: Miss [8, 7]
+4: Miss [8, 7, 4]
+2: Miss [7, 4, 2]
+5: Miss [4, 2, 5]
+4: Hit [2, 5, 4]
+7: Miss [5, 4, 7]
+3: Miss [4, 7, 3]
+4: Hit [7, 3, 4]
+5; Miss [3,4,5]
 
-PhysMem: 12bits, 5offset
+--> Hitrate 20%
 
+OPT
 
--s 0
+8: Miss [8]
+7: Miss [8, 7]
+4: Miss [8, 7, 4] (8 replaced)
+2: Miss [7, 4, 2]
+5: Miss [7, 4, 5] (2 replaced)
+4: Hit
+7: Hit
+3: Miss [4, 5, 3] (7 Replaced)
+4: Hit
+5: Hit
 
-611C : 11000 01000 11100
-
-11000 = Stelle im PDBR: 24
-
-In Byte 24 steht: a1 (1 0100001)(33)
-In Page 33 mit Index 8 steht: b5 (1 0110101)(53)
-Phys Address: 0110101 11100 --> Value 08
-
-
-3da8: 01111 01101 01000 (15, 12, 8)
-
-01111 = Stelle im PDBR: 15
-In Byte 15 steht: d6 (1 1010110)(86)
-In Page 86 mit Index 12 steht: 7f (0 1111111)(63)
-Invalid
-
-
-17f5: 00101 11111 10101 (5, 31, 21)
-
-Stelle im PDBR: d4(1 1010100) (84)
-In Page 84 mit Offset 31 steht: ce (1 1001110)
-
-Phys Address: 1001110 10101 (78, 21) --> 1c
+--> Hitrate 40%
 
 
-s- 1
 
-6c74: 11011 00011 10100 (27, 3, 20)
+Aufgabe 2.
 
-27. Stelle im PDBR: a0 (1 0100000)(32)
-In Page 32 steht: e1 (1 1100001) (97)
-Phys Address: 1100001 10100 --> 06
+FIFO: 1, 2, 3, 4, 5, 6, 1, 2, 3, 4
+LRU: 1, 2, 3, 4, 5, 6, 1, 2, 3, 4
+MRU: 1, 2, 3, 4, 5, 6, 5, 6, 5, 6
+OPT: 1, 2, 3, 4, 5, 6, 7, 8, 9 (Ich weiß .. schwachsinn :D)
+OPT lässt sich nicht austricksen, weil er in die Zukunft sieht
 
+Wenn der Cache nur um 1 vergrößert wird, haben wir eine nahezu optimale hitrate
 
 
 Aufgabe 3.
-Ich denke, weil das ganze wie ein Baum aufgebaut ist, haben wir den Vorteil der Lokalität, und somit schnelle Zugriffe. 
+Die meisten werden schlecht laufen, weil keine Lokalität vorhanden ist.
+
+
+Aufgabe 4.
+
+Mit starker Lokalität performen alle Strategien besser, vorallem Clock verhält sich hier im Durschnitt ein wenig besser.
+RAND < LRU < CLOCK < 100% Hitrate
+
+In meinem Fall verschlechtert sich die Hitrate ein wenig, wenn ich mehr CLockbits angebe
+
+
+Aufgabe 5.
+
+Komischerweise kommen viele Addressen extrem oft vor.
+
+Meist ist der Zugriff auf eine Addresse sehr viel häufiger, und das ist meist eine sehr kleine Addresse. D.h. der Cache müsste garnicht besonders groß sein, um eine vielzahl der Addressen zu bedienen.
